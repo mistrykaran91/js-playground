@@ -25,7 +25,11 @@ const Preview: React.FC<PreviewProps> = ({ code, err, html }) => {
         sandbox="allow-scripts"
         srcDoc={html}
       />
-      {err && <div className="preview-error">{err}</div>}
+      {err && (
+        <article className="message is-danger preview-error">
+          <div className="message-body">{err}</div>
+        </article>
+      )}
     </div>
   );
 };
