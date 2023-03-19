@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <style>
+      html {
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .message-container {
+        display: block;
+      }
+
+      .message.is-danger {
+        background-color: #feecf0;
+      }
+
+      .message-header {
+        border-radius: 0.375em 0.375em 0 0;
+        font-weight: 700;
+        line-height: 1.25;
+        padding: 0.75em 1em;
+      }
+
+      .message.is-danger .message-header {
+        background-color: #f14668;
+        color: #fff;
+      }
+
+      .message.is-danger .message-body {
+        border-color: #f14668;
+        color: #cc0f35;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const handleError = (err) => {
+        const root = document.querySelector("#root");
+        root.innerHTML = `<div class="message is-danger message-container">
+                            <div class="message-header">
+                                <span>Runtime Error</span>
+                            </div>
+                            <div class="message-body">${err}</div>
+                        </div>`;
+        console.error(err);
+      };
+
+      window.addEventListener("error", (event) => {
+        event.preventDefault();
+        handleError(event.error);
+      });
+
+      window.addEventListener(
+        "message",
+        (event) => {
+          try {
+            eval(event.data);
+          } catch (err) {
+            handleError(err);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
