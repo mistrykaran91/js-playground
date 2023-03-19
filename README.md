@@ -21,7 +21,7 @@ There are already two libraries included.
 
 ```
   npm install
-  npm start // visit localhost:8080
+  npm start
 ```
 
 **Special thanks to [Stephen Grider](https://github.com/StephenGrider) and his awesome courses!**
