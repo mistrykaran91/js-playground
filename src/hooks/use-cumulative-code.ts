@@ -1,5 +1,8 @@
-export const useCumulativeCode = (code: string) => {
-  const showFunc = `
+import { useTypedSelector } from "./use-typed-selector";
+
+export const useCumulativeCode = () => {
+  return useTypedSelector((state) => {
+    const showFunc = `
     import _React from 'react';
     import _ReactDOM from 'react-dom';
     var show = (value) => {
@@ -17,7 +20,6 @@ export const useCumulativeCode = (code: string) => {
     };
   `;
 
-  const cumulativeCode = [showFunc, code];
-
-  return cumulativeCode.join("\n");
+    return [showFunc, state.codeBundle.content];
+  }).join("\n");
 };

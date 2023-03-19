@@ -20,7 +20,6 @@ const bundle = async (rawCode: string) => {
     if (!intialized) {
       await startService();
     }
-    debugger;
     const result = await esbuild.build({
       entryPoints: ["index.js"],
       bundle: true,
@@ -33,7 +32,6 @@ const bundle = async (rawCode: string) => {
       jsxFactory: "_React.createElement",
       jsxFragment: "_React.Fragment",
     });
-    debugger;
     return {
       code: result.outputFiles[0].text,
       err: "",
