@@ -2,6 +2,7 @@
   "name": "js-playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mistrykaran91.github.io/js-playground",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",
     "@monaco-editor/react": "^4.4.6",
@@ -33,13 +34,16 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.16",
     "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11"
+    "@types/react-dom": "^18.0.11",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
