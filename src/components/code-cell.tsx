@@ -43,7 +43,7 @@ const CodeCell: React.FC = () => {
           flexDirection: "row",
         }}
       >
-        <Resizable direction="horizontal">
+        <Resizable>
           <CodeEditor
             initialValue={codeBundle.content}
             onChange={(value) => updateCodeContent(value)}
