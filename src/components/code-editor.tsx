@@ -5,6 +5,8 @@ import MonacoEditor, { OnMount, Monaco } from "@monaco-editor/react";
 import { editor } from "monaco-editor/esm/vs/editor/editor.api";
 import Highlighter from "monaco-jsx-highlighter";
 import codeShift from "jscodeshift";
+import prettier from 'prettier';
+import parser from 'prettier/parser-babel';
 
 interface CodeEditorProps {
   initialValue: string;
@@ -40,7 +42,24 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
     // );
   };
 
-  const onFormatClick = () => {};
+  const onFormatClick = () => {
+    // get current value from editor
+    const unformatted = editorRef.current.getModel().getValue();
+
+    // format that value
+    const formatted = prettier
+      .format(unformatted, {
+        parser: "babel",
+        plugins: [parser],
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+      })
+      .replace(/\n$/, "");
+
+    // set the formatted value back in the editor
+    editorRef.current.setValue(formatted);
+  };
   return (
     <div className="editor-wrapper">
       <button

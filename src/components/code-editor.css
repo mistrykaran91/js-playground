@@ -1,7 +1,7 @@
 .editor-wrapper {
   position: relative;
   height: 100%;
-  width: calc(100% - 10px);
+  width: calc(100% - 10px); 
 }
 
 .editor-wrapper .button-format {
@@ -15,4 +15,32 @@
 
 .editor-wrapper:hover .button-format {
   opacity: 1;
+}
+
+.progress-wrapper {
+  height: 100vh;
+  flex-grow: 1;
+  background-color: white;
+}
+
+.progress-cover {
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
