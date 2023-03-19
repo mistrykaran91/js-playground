@@ -2,7 +2,7 @@
 
 This project is an open source JS playground where you can execute JS code and see the preview at the other side.
 
-[https://mistrykaran91.github.io/js-playground/](Demo here)
+[https://mistrykaran91.github.io/js-playground](Demo here)
 
 ### Want to run locally ?
 
