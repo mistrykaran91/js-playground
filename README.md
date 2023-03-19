@@ -12,7 +12,7 @@ You can import libraries like you do in a normal JS file.
   Eg:- import _ from lodash
 ```
 
-There are already two libraries included.
+There are already two libraries included:-
 
 - React
 - ReactDOM
